@@ -15,7 +15,7 @@ get '/' do
   cache_control :public, :must_revalidate, :max_age => 60
 
   rss = RSS::Maker.make('atom') do |maker|
-    maker.channel.author = 'matz'
+    maker.channel.author = 'NOS Clearing ASA'
     maker.channel.updated = Time.now.to_s
     maker.channel.about = 'http://www.ruby-lang.org/en/feeds/news.rss'
     maker.channel.title = 'Example Feed'
