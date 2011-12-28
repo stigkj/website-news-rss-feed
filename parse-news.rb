@@ -6,11 +6,10 @@ require 'nokogiri'
 require 'open-uri'
 require 'rss'
 
-=begin
-use Rack::Cache
-  :metastore => 'heap:/',
-  :entitystore => 'heap:/'
-=end
+use Rack::Cache do
+  set :metastore, 'heap:/'
+  set :entitystore, 'heap:/'
+end
 
 get '/' do
   cache_control :public, :must_revalidate, :max_age => 60
