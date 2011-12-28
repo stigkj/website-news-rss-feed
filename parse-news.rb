@@ -23,14 +23,10 @@ get '/' do
     doc = Nokogiri::HTML(open('http://www.nosclearing.com/news/category202.html'))
 
     doc.xpath('//tr/td[@class="loc-and-date"]/..').each do |tr|
-      loc_and_date = tr.at_xpath('.//span').content
-      link2 = tr.at_xpath('.//a/@href').content
-      title2 = tr.at_xpath('.//a').content
-
       maker.items.new_item do |item|
-        item.link = link2
-        item.title = title2
-        item.updated = loc_and_date
+        item.link = tr.at_xpath('.//a/@href').content
+        item.title = tr.at_xpath('.//a').content
+        item.updated = tr.at_xpath('.//span').content
       end
     end
   end
