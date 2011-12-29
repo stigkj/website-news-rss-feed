@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'rack/cache'
-require 'haml'
 
 require 'nokogiri'
 require 'open-uri'
@@ -32,5 +31,4 @@ get '/' do
   end
 
   rss.to_s
-  #haml(:rss, :format => :xhtml, :escape_html => true, :layout => false)
 end
