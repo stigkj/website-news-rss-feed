@@ -17,8 +17,8 @@ get '/' do
   rss = RSS::Maker.make('atom') do |maker|
     maker.channel.author = 'NOS Clearing ASA'
     maker.channel.updated = Time.now.to_s
-    maker.channel.about = 'http://www.ruby-lang.org/en/feeds/news.rss'
-    maker.channel.title = 'Example Feed'
+    maker.channel.about = 'http://www.nosclearing.com'
+    maker.channel.title = 'NOS Clearing News'
 
     doc = Nokogiri::HTML(open('http://www.nosclearing.com/news/category202.html'))
 
